@@ -66,7 +66,7 @@ const Main_Comment = () => {
                     onSuccess={loadComment} />
 
                 <div className='flex flex-wrap items-start justify-center w-full gap-4'>
-                    {dataComment ? dataComment.map((item, index) => (
+                    {dataComment && dataComment.length > 0 ? dataComment.map((item, index) => (
                         <Card key={index} className="w-full max-w-sm">
                             <CardHeader>
                                 <CardTitle>{item.username}</CardTitle>
