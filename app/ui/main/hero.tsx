@@ -22,8 +22,8 @@ const Hero = () => {
             </h1>
 
             <p className='text-center'>
-                Halo, saya DIYRA — seorang web developer yang suka bikin website simpel tapi keren. <br />
-                Yuk, kenalan dan lihat apa saja yang sudah saya buat!
+                Hi, I&apos;m DIYRA - a web programmer whose like to make a simple website. <br />
+                Cuz im just lazy. Anyway let&apos;s get to know each other.
             </p>
 
             {lightEffect.map((item) => (item))}
