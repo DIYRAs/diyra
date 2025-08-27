@@ -16,7 +16,8 @@ import { PopoverClose } from '@radix-ui/react-popover';
 interface Comment_SubmitProps {
     comment: string,
     onSuccess?: () => void,
-    disable: boolean
+    disable: boolean,
+    className?: string
 }
 
 export const Comment_Submit = ({ comment, onSuccess, disable }: Comment_SubmitProps) => {
@@ -51,7 +52,7 @@ export const Comment_Submit = ({ comment, onSuccess, disable }: Comment_SubmitPr
                 <Button
                     disabled={disable}
                     className='w-full px-3 py-4 transition duration-500 ease-in-out border rounded-full cursor-pointer border-black/50 max-w-4/12 hover:text-white hover:bg-black'>
-                    {disable ? 'Wait holdon...' : 'GO'}
+                    {disable ? 'Wait holdon...' : 'Share'}
                 </Button>
             </PopoverTrigger>
             <PopoverContent

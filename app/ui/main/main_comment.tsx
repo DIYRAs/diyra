@@ -47,11 +47,11 @@ const Main_Comment = () => {
 
     return (
         <div className='flex flex-col items-center justify-start w-full min-h-screen max-h-[200vh] overflow-auto p-10'>
-            <h2 className='text-2xl italic font-semibold'>
-                What do you think? 💭
-            </h2>
+            <div className='flex flex-col items-center justify-center w-full gap-y-6'>
+                <h2 className='text-2xl italic font-semibold'>
+                    What do you think? 💭
+                </h2>
 
-            <div className='flex flex-col items-center justify-center w-full mt-10 space-y-3'>
                 <TextareaAutosize
                     placeholder="Share your thoughts"
                     name='comment'
@@ -64,34 +64,41 @@ const Main_Comment = () => {
                     disable={isLoading}
                     comment={userComment}
                     onSuccess={loadComment} />
-
-                <div className='flex flex-wrap items-start justify-center w-full gap-4'>
-                    {dataComment && dataComment.length > 0 ? dataComment.map((item, index) => (
-                        <Card key={index} className="w-full max-w-sm">
-                            <CardHeader>
-                                <CardTitle>{item.username}</CardTitle>
-                                <CardDescription>
-                                    {item.content}
-                                </CardDescription>
-                            </CardHeader>
-                            {item.image && (
-                                <CardContent>
-                                    <div className='*:max-h-[250px]'>
-                                        <Image
-                                            src={'/images/ph.webp'}
-                                            alt='Umm deskiption'
-                                            width={300}
-                                            height={150}
-                                            className='object-cover object-center w-full h-full' />
-                                    </div>
-                                </CardContent>
-                            )}
-                        </Card>
-                    )) : (
-                        <p className='text-xl italic'>No comment yet...</p>
-                    )}
-                </div>
             </div>
+
+            <div className="w-full gap-6 mt-10 columns-1 sm:columns-2 lg:columns-3">
+                {dataComment && dataComment.length > 0 ? (
+                    dataComment.map((item, index) => (
+                        <div key={index} className="mb-4 break-inside-avoid">
+                            <Card
+                                style={{ scrollbarWidth: "thin" }}
+                                className="w-full overflow-auto max-h-[350px] whitespace-break-spaces break-all"
+                            >
+                                <CardHeader>
+                                    <CardTitle>{item.username}</CardTitle>
+                                    <CardDescription>{item.content}</CardDescription>
+                                </CardHeader>
+                                {item.image && (
+                                    <CardContent>
+                                        <div className="*:max-h-[250px]">
+                                            <Image
+                                                src={"/images/ph.webp"}
+                                                alt="Umm description"
+                                                width={300}
+                                                height={150}
+                                                className="object-cover object-center w-full h-full"
+                                            />
+                                        </div>
+                                    </CardContent>
+                                )}
+                            </Card>
+                        </div>
+                    ))
+                ) : (
+                    <p className="text-xl italic">No comment yet...</p>
+                )}
+            </div>
+
         </div>
     )
 }
